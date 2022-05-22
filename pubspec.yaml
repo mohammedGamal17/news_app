@@ -43,11 +43,25 @@ dependencies:
   get: ^4.6.3
   get_storage: ^2.0.3
   webview_flutter: ^3.0.4
+  flutter_launcher_icons: ^0.9.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_native_splash:
+  color: "#F8F9FA"
+  image: assets/Images/logo.png
+  android: true
+  ios: true
+  web: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/Images/logo.png"
+  adaptive_icon_background: "#F8F9FA"
+  adaptive_icon_foreground: "assets/Images/logo_foreground.png"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -96,3 +110,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - assets/Images/logo.png
+    - assets/Images/logo_foreground.png

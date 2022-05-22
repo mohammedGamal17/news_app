@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:news_app/shared/cubit/app_cubit.dart';
 import 'package:news_app/shared/cubit/bloc_observer.dart';
 import 'package:news_app/shared/cubit_for_main/main_cubit.dart';
@@ -16,10 +17,13 @@ void main() async {
       WidgetsFlutterBinding.ensureInitialized();
       //await GetStorage.init();
       //await CacheHelper.init();
+      WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
       runApp(MyApp());
     },
     blocObserver: MyBlocObserver(),
   );
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
