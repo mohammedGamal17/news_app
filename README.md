@@ -1,10 +1,10 @@
 # news_app
 
-A new Flutter project.
-
+News app in Egypt by Flutter. 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+use BLoC and Dio 
 
 A few resources to get you started if this is your first Flutter project:
 
