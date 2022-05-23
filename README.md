@@ -3,14 +3,14 @@
 News app in Egypt by Flutter. 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-use BLoC and Dio 
+The goal is to create a News Feed app which gives a user regularly-updated news from the internet related to a particular topic, person, or location. In this project, use Guardian API.
 
-A few resources to get you started if this is your first Flutter project:
+##API Key Note
+You need to insert your API key. Go to a file named 'lib/shared/components/constants.dart' and find the value of API_KEY. Replace "API" with "YOUR-API-KEY".
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##Features
+Loaders
+Guardian API
+JSON Parsing
+BLoC
+SharedPreferences
