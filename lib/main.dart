@@ -11,11 +11,9 @@ import 'package:news_app/shared/styles/colors.dart';
 
 import 'layouts/home.dart';
 
-
-
 void main() async {
   BlocOverrides.runZoned(
-        () async {
+    () async {
       WidgetsFlutterBinding.ensureInitialized();
       //await GetStorage.init();
       //await CacheHelper.init();
@@ -29,7 +27,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key,}) : super(key: key);
+  MyApp({
+    Key? key,
+  }) : super(key: key);
   final UiColor theme = UiColor();
 
   @override

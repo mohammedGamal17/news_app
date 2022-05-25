@@ -39,7 +39,7 @@ dependencies:
   dio: ^4.0.6
   shared_preferences: ^2.0.15
   hexcolor: ^2.0.7
-  flutter_native_splash: ^2.2.0+1
+  flutter_native_splash: 2.2.1
   get: ^4.6.3
   get_storage: ^2.0.3
   webview_flutter: ^3.0.4
