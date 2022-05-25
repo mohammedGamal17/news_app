@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:news_app/shared/cubit/app_cubit.dart';
 import 'package:news_app/shared/cubit/bloc_observer.dart';
 import 'package:news_app/shared/cubit_for_main/main_cubit.dart';
