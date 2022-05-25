@@ -12,7 +12,9 @@ import 'layouts/home.dart';
 void main() async {
   BlocOverrides.runZoned(
     () async {
+      WidgetsFlutterBinding.ensureInitialized();
       //await GetStorage.init();
+      //await CacheHelper.init();
       WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
       FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
       runApp(MyApp());
