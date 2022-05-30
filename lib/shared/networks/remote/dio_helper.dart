@@ -38,7 +38,7 @@ class DioHelper {
     required Map<String, dynamic> query,
   }) async {
     try {
-      return await dio.post(url, queryParameters: query);
+      return await dio.post(url, queryParameters: query,);
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
