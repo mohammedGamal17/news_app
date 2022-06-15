@@ -9,12 +9,12 @@ The goal is to create a News Feed app which gives a user regularly-updated news 
 You need to insert your API key. Go to a file named 'lib/shared/components/constants.dart' and find the value of API_KEY. Replace "API" with "YOUR-API-KEY".
 
 ## Features
- Loaders,
- Web View,
- News API,
- JSON Parsing,
- BLoC,
- SharedPreferences.
+ - Loaders,
+ - Web View,
+ - News API,
+ - JSON Parsing,
+ - BLoC,
+ - SharedPreferences.
 
 ![Uploading Screenshot_20220530-124456.jpg…](![Screenshot_20220530-124335](https://user-images.githubusercontent.com/66007646/170976677-c45b1413-1d96-4a3a-be8e-0bbd451d2669.jpg)
 ![Screenshot_20220530-124349](https://user-images.githubusercontent.com/66007646/170976681-ccc46aa4-9fb8-442f-9e47-b920c9a7ff6f.jpg)
