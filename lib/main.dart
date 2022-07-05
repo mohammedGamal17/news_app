@@ -7,7 +7,9 @@ import 'package:news_app/shared/cubit/app_cubit.dart';
 import 'package:news_app/shared/cubit/bloc_observer.dart';
 import 'package:news_app/shared/cubit_for_main/main_cubit.dart';
 import 'package:news_app/shared/cubit_for_main/main_state.dart';
+import 'package:news_app/shared/networks/local/cache_helper.dart';
 import 'package:news_app/shared/styles/colors.dart';
+import 'package:news_app/shared/styles/theme_service.dart';
 
 import 'layouts/home.dart';
 
@@ -15,22 +17,21 @@ void main() async {
   BlocOverrides.runZoned(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-      //await GetStorage.init();
-      //await CacheHelper.init();
-      WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+      await GetStorage.init();
+      //WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+      //FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
       runApp(MyApp());
     },
     blocObserver: MyBlocObserver(),
   );
-  FlutterNativeSplash.remove();
+  //FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
   MyApp({
     Key? key,
   }) : super(key: key);
-  final UiColor theme = UiColor();
+  final ThemeService theme = ThemeService();
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +48,10 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           var cubit = MainCubit.get(context);
-          return MaterialApp(
+          return GetMaterialApp(
             theme: theme.light,
             darkTheme: theme.dark,
-            themeMode: cubit.isDark ? ThemeMode.dark : ThemeMode.light,
+            themeMode: theme.getThemeMode(),
             debugShowCheckedModeBanner: false,
             home: const Home(),
           );
