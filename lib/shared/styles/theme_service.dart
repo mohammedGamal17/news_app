@@ -7,19 +7,20 @@ class ThemeService {
   final ThemeData light = ThemeData(
     scaffoldBackgroundColor: HexColor('F8F9FA'),
     appBarTheme: AppBarTheme(
-        backgroundColor: HexColor('E9ECEF'),
-        actionsIconTheme: IconThemeData(
+      backgroundColor: HexColor('CED4DA'),
+      actionsIconTheme: IconThemeData(
+        color: HexColor('212529'),
+        size: 20.0,
+      ),
+      titleTextStyle: TextStyle(
           color: HexColor('212529'),
-          size: 20.0,
-        ),
-        titleTextStyle: TextStyle(
-            color: HexColor('212529'),
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold),
-        titleSpacing: 10.0),
+          fontSize: 18.0,
+          fontWeight: FontWeight.bold),
+      titleSpacing: 10.0,
+    ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       elevation: 0.0,
-      backgroundColor: HexColor('E9ECEF'),
+      backgroundColor: HexColor('CED4DA'),
       selectedIconTheme: IconThemeData(color: HexColor('212529'), size: 20.0),
       showUnselectedLabels: false,
       unselectedIconTheme: IconThemeData(
@@ -27,7 +28,9 @@ class ThemeService {
         color: HexColor('ADB5BD'),
       ),
       selectedItemColor: HexColor('212529'),
-      selectedLabelStyle: const TextStyle(fontSize: 11.0),
+      selectedLabelStyle: const TextStyle(
+          fontSize: 11.0
+      ),
     ),
     textTheme: TextTheme(
       headline6: TextStyle(
@@ -39,6 +42,9 @@ class ThemeService {
       caption: TextStyle(
         color: HexColor('ADB5BD'),
       ),
+    ),
+    iconTheme: IconThemeData(
+      color: HexColor('212529'),
     ),
   );
   final ThemeData dark = ThemeData(
@@ -53,7 +59,8 @@ class ThemeService {
             color: HexColor('F8F9FA'),
             fontSize: 18.0,
             fontWeight: FontWeight.bold),
-        titleSpacing: 10.0),
+        titleSpacing: 10.0
+    ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: HexColor('212529'),
       selectedIconTheme: IconThemeData(color: HexColor('f8f9fa'), size: 20.0),
@@ -63,7 +70,9 @@ class ThemeService {
         color: HexColor('6c757d'),
       ),
       selectedItemColor: HexColor('f8f9fa'),
-      selectedLabelStyle: const TextStyle(fontSize: 11.0),
+      selectedLabelStyle: const TextStyle(
+          fontSize: 11.0
+      ),
     ),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       circularTrackColor: HexColor('dee2e6'),
