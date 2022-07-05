@@ -6,6 +6,7 @@ import '../modules/search_screen/search_screen.dart';
 import '../shared/components/components.dart';
 import '../shared/cubit/app_cubit.dart';
 import '../shared/cubit/app_state.dart';
+import '../shared/styles/theme_service.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -30,7 +31,8 @@ class Home extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     //ThemeService().changeTheme();
-                    MainCubit.get(context).getDarkMode();
+                    ThemeService().changeTheme();
+                    print('object');
                   },
                   icon: const Icon(Icons.dark_mode),
                 )
