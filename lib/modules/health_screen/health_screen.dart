@@ -24,7 +24,7 @@ class HealthScreen extends StatelessWidget {
             body: list.isNotEmpty
                 ? ListView.separated(
               physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) => data(list[index],context),
+              itemBuilder: (context, index) => data(list[index],context,index),
               separatorBuilder: (context, index) => separator(),
               itemCount: list.length,
             )
