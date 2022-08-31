@@ -30,9 +30,7 @@ class Home extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    //ThemeService().changeTheme();
                     ThemeService().changeTheme();
-                    print('object');
                   },
                   icon: const Icon(Icons.dark_mode),
                 )
