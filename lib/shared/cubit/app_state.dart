@@ -34,6 +34,8 @@ class TechnologyDataSuccess extends AppState {}
 
 class TechnologyDataFail extends AppState {}
 
+class TechnologyGetSelectedItem extends AppState {}
+
 class SearchDateLoading extends AppState {}
 
 class SearchDataSuccess extends AppState {}
@@ -46,3 +48,4 @@ class AllDataSuccess extends AppState {}
 
 class AllDataFail extends AppState {}
 
+class DesktopState extends AppState {}
