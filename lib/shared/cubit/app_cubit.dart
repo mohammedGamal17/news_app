@@ -73,7 +73,7 @@ class AppCubit extends Cubit<AppState> {
     emit(NavBarChange());
   }
 
-  List <dynamic> all=[];
+  List<dynamic> all = [];
 
   void getAllDate() {
     emit(AllDateLoading());
@@ -91,7 +91,6 @@ class AppCubit extends Cubit<AppState> {
       emit(AllDataSuccess());
     }
   }
-
 
   List<dynamic> sports = [];
 
@@ -188,6 +187,20 @@ class AppCubit extends Cubit<AppState> {
     } else {
       emit(TechnologyDataSuccess());
     }
+  }
+
+  int selectedItem = 0;
+
+  void getSelectedItem(index) {
+    selectedItem = index;
+    emit(TechnologyGetSelectedItem());
+  }
+
+  bool isDesktop = false;
+
+  void getDesktop(bool value) {
+    isDesktop = value;
+    emit(DesktopState());
   }
 
   List<dynamic> search = [];
