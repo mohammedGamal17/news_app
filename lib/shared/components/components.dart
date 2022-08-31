@@ -1,69 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:news_app/shared/cubit/app_cubit.dart';
 
 import '../../modules/web_view_screen/web_view_screen.dart';
 
-Widget data(list, context) {
-  return InkWell(
-    onTap: () {
-      navigateTo(context, WebViewScreen(url: '${list['url']}',),);
-    },
-    child: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 80.0,
-                height: 80.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  image: DecorationImage(
-                    image: NetworkImage('${list['urlToImage']}'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 10.0),
-              Expanded(
-                child: SizedBox(
+Widget data(list, context, index) {
+  return Container(
+    color: AppCubit.get(context).selectedItem == index && AppCubit.get(context).isDesktop ? Colors.grey[400] : null,
+    child: InkWell(
+      onTap: () {
+        //navigateTo(context, WebViewScreen(url: '${list['url']}',),);
+        AppCubit.get(context).getSelectedItem(index);
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 80.0,
                   height: 80.0,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '${list['title']}',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .bodyText1,
-                        ),
-                      ),
-                      Text(
-                        '${list['publishedAt']}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .caption,
-                      ),
-                    ],
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: DecorationImage(
+                      image: NetworkImage('${list['urlToImage']}'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                const SizedBox(width: 10.0),
+                Expanded(
+                  child: SizedBox(
+                    height: 80.0,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            '${list['title']}',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                        ),
+                        Text(
+                          '${list['publishedAt']}',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.caption,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -82,9 +81,9 @@ Widget separator() {
 Widget circularProgressIndicator() {
   return Center(
       child: CircularProgressIndicator(
-        backgroundColor: HexColor('6C757D'),
-        color: HexColor('E9ECEF'),
-      ));
+    backgroundColor: HexColor('6C757D'),
+    color: HexColor('E9ECEF'),
+  ));
 }
 
 Widget textFormField({
@@ -108,7 +107,7 @@ Widget textFormField({
       labelText: labelText,
       prefixIcon: Icon(prefix),
       border:
-      OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadius)),
+          OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadius)),
     ),
     textDirection: textDirection,
     validator: (value) {
@@ -129,7 +128,9 @@ void navigateTo(context, widget) =>
       return widget;
     }));
 
-Widget newsScreenBuilder(list, context, {
+Widget newsScreenBuilder(
+  list,
+  context, {
   required String urlToImage,
   required String title,
   required String description,
@@ -154,10 +155,7 @@ Widget newsScreenBuilder(list, context, {
           title,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: Theme
-              .of(context)
-              .textTheme
-              .caption,
+          style: Theme.of(context).textTheme.caption,
           textDirection: TextDirection.rtl,
         ),
         const SizedBox(height: 10.0),
@@ -165,18 +163,18 @@ Widget newsScreenBuilder(list, context, {
           description,
           maxLines: 6,
           overflow: TextOverflow.ellipsis,
-          style: Theme
-              .of(context)
-              .textTheme
-              .bodyText1,
+          style: Theme.of(context).textTheme.bodyText1,
           textDirection: TextDirection.rtl,
         ),
         Center(
           child: TextButton(
               onPressed: () {
-                navigateTo(context,
-                  WebViewScreen(url: '${list['url']}'),);
-              }, child: const Text('أقرأ المقال كاملا')),
+                navigateTo(
+                  context,
+                  WebViewScreen(url: '${list['url']}'),
+                );
+              },
+              child: const Text('أقرأ المقال كاملا')),
         ),
       ],
     ),
