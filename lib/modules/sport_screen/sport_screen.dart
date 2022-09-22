@@ -11,25 +11,21 @@ class SportsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-      AppCubit()
-        ..getSportsDate(),
+      create: (context) => AppCubit()..getSportsDate(),
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {},
         builder: (context, state) {
-          var list = AppCubit
-              .get(context)
-              .sports;
+          var list = AppCubit.get(context).sports;
           return Scaffold(
-              body: list.isNotEmpty
-                  ? ListView.separated(
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) => data(list[index],context,index),
-                separatorBuilder: (context, index) => separator(),
-                itemCount: list.length,
-              )
-                  : circularProgressIndicator(),
-
+            body: list.isNotEmpty
+                ? ListView.separated(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) =>
+                        data(list[index], context, index),
+                    separatorBuilder: (context, index) => separator(),
+                    itemCount: list.length,
+                  )
+                : circularProgressIndicator(),
           );
         },
       ),
