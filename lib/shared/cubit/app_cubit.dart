@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:news_app/modules/business_screen/business_screen.dart';
 import 'package:news_app/modules/health_screen/health_screen.dart';
 import 'package:news_app/modules/sport_screen/sport_screen.dart';
@@ -224,5 +225,24 @@ class AppCubit extends Cubit<AppState> {
       }
       emit(SearchDataFail());
     });
+  }
+
+  Future<Widget> checkConnection(dynamic function)  async {
+    bool result = await InternetConnectionChecker().hasConnection;
+    if (result == true) {
+      return function();
+    } else {
+     return Container(
+        color: Colors.grey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.signal_wifi_connected_no_internet_4,color: Colors.white,size: 30.0),
+            Text('No Internet Connection, Please Check your Connection',)
+          ],
+        ),
+      );
+    }
   }
 }
